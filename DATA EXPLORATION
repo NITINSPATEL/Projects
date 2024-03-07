@@ -1,0 +1,4 @@
+IMPORTING DATA -
+1. Read HELP from SQL Sever Management Studio -> Required Database -> Tasks -> Import Data 
+2. Have to install SQL Setup Wizard in Developer Mode and select  , then importing data is simple
+3. Import data easily from Import and Export Wizard in START menu

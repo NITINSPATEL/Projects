@@ -13,4 +13,4 @@ IMPORTANT FORMULAE:
 12. Days/NetworkDays                    // Days give range of days spanned ; NetworkDays give range of working days(removes holidays defined in Excel for the given days range in that calender year, weekends, etc.)
 13. XLOOKUP() / VLOOKUP()               // Wildcard entry, not found feature exploration in XLOOKUP() ; SUM(XLOOKUP():XLOOKUP()) -> to sum XLOOKUP in a range ; XLOOKUP() dynamically changes arrays indices if there are modifications , XLOOKUP() is better dure to this
 
-
+# Conditional formatting, Filter option(sort by color , bring upp , duplicate values -> imp. application (very fast resolvation)) in Excel is really cool

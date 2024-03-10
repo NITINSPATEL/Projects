@@ -1,0 +1,13 @@
+IMPORTANT FORMULAE:
+
+1. Max/Min
+2. IF/IFS
+3. Len
+4. Left/Right
+5. Date to Text    / TEXT()              // V.Imp. for an analyst  
+6. Trim
+7. Concatenate
+9. Substitute                            // substitute at possibly multiple instances of ith occurence
+10. Sum/SumIF/SumIFS
+11. Count/CountIF/CountIFS
+12. Days/NetworkDays                    // Days give range of days spanned ; NetworkDays give range of working days(removes holidays defined in Excel for the given days range in that calender year, weekends, etc.)

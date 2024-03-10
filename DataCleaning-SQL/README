@@ -1,1 +1,8 @@
 This is the extention of hands on experience with importing data in SQL and cleaning data appropriately
+
+
+EXPORTING Data :
+1. As simple as import , just open Import/Export Wizard , reverse options of selecting that ere taken while imprting 
+2. Source -> Dest. of Import , Dest. -> Source of Import
+3. Now , finish transferring rows
+4. Make share to make destination worksheet where you want to export your data from a given database . Data will be exported to new sheet of the selected Destination worksheet

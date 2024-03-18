@@ -96,7 +96,82 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                 double x_intersect = intersection(l,r);
                 // OG intersection ke cases - 4cases , depending on left vala upr ya niche , and left ka c1 < / > right ka c1 
                 
-                if((l.a1 - r.a1)*(l.b1 - r.b1) > 0) // right vala initially upr h
+               
+             if(fabs(l.a1 - r.a1)<1e-6)    // equal start point of intersecting lines , be careful
+                {
+                   if(fabs(l.c1 - r.c1)<1e-6)    // equal start and end points 
+                    {
+                        if(r.m <= l.m)  // pehle r bda y-coordinate
+                        {
+                        Line y(r.a1, r.b1, x_intersect, r.m*1.0*x_intersect + r.c );
+                        merged.push_back(y);
+                        Line z( x_intersect, r.m*1.0*x_intersect + r.c, l.c1 , l.d1 );
+                        merged.push_back(z); 
+                        }
+                        else{    // pehle l bda y-coordinate
+                        Line y(l.a1, l.b1, x_intersect, l.m*1.0*x_intersect + l.c );
+                        merged.push_back(y);
+                        Line z( x_intersect, l.m*1.0*x_intersect + l.c, r.c1 , r.d1 );
+                        merged.push_back(z); 
+                        }
+                        left_index++;
+                        right_index++;
+                        continue;
+                    }
+
+                    if(r.m <= l.m)  // pehle r bda y-coordinate
+                    {
+                        if(l.c1 <= r.c1)  //  r extends beyond l
+                        {
+                        Line y(r.a1, r.b1, x_intersect, r.m*1.0*x_intersect + r.c );
+                        merged.push_back(y);
+                        Line z( x_intersect, r.m*1.0*x_intersect + r.c, l.c1 , l.d1 );
+                        merged.push_back(z); 
+                        right[right_index].a1 = l.c1;
+                        right[right_index].b1 = r.m*1.0*l.c1 + r.c;
+                        left_index++;
+                        continue;
+                        }
+                        else{     // l extends beyond r
+                        Line y(r.a1, r.b1, x_intersect, r.m*1.0*x_intersect + r.c );
+                        merged.push_back(y);
+                        Line z( x_intersect, r.m*1.0*x_intersect + r.c, r.c1 , l.m*1.0*r.c1 + l.c );
+                        merged.push_back(z); 
+                        left[left_index].a1 = r.c1;
+                        left[left_index].b1 = l.m*1.0*r.c1 + l.c;
+                        right_index++;
+                        continue;
+                        }
+                    }
+
+                    else{       // pehle l bda y-coordinate
+
+                    if(l.c1 <= r.c1)  //  r extends beyond l
+                        {
+                        Line y(l.a1, l.b1, x_intersect, l.m*1.0*x_intersect + l.c );
+                        merged.push_back(y);
+                        Line z( x_intersect, l.m*1.0*x_intersect + l.c, l.c1 , r.m*1.0*l.c1 + r.c );
+                        merged.push_back(z); 
+                        right[right_index].a1 = l.c1;
+                        right[right_index].b1 = r.m*1.0*l.c1 + r.c;
+                        left_index++;
+                        continue;
+                        }
+                        else{     // l extends beyond r
+                        Line y(l.a1, l.b1, x_intersect, l.m*1.0*x_intersect + l.c );
+                        merged.push_back(y);
+                        Line z( x_intersect, l.m*1.0*x_intersect + l.c, r.c1 , r.d1 );
+                        merged.push_back(z); 
+                        left[left_index].a1 = r.c1;
+                        left[left_index].b1 = l.m*1.0*r.c1 + l.c;
+                        right_index++;
+                        continue;
+                        }
+                    }
+                }
+
+
+             if(r.m < l.m) // right vala initially upr h  and LEFT KA COODINATE < RIGHT KA COORDINATE
                 {
                     if(l.c1 <= r.c1)  // r beyond l chl rha h 
                     {
@@ -126,77 +201,6 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                     }
                 } 
 
-                else if(fabs(l.a1 - r.a1)<1e-6)    // equal start point of intersecting lines , be careful
-                {
-                   if(fabs(l.c1 - r.c1)<1e-6)    // equal start and end points 
-                    {
-                        if(l.b1 <= r.b1)  // pehle r bda y-coordinate
-                        {
-                        Line y(r.a1, r.b1, x_intersect, r.m*1.0*x_intersect + r.c );
-                        merged.push_back(y);
-                        Line z( x_intersect, r.m*1.0*x_intersect + r.c, l.c1 , l.d1 );
-                        merged.push_back(z); 
-                        }
-                        else{    // pehle l bda y-coordinate
-                        Line y(l.a1, l.b1, x_intersect, l.m*1.0*x_intersect + l.c );
-                        merged.push_back(y);
-                        Line z( x_intersect, l.m*1.0*x_intersect + l.c, r.c1 , r.d1 );
-                        merged.push_back(z); 
-                        }
-                        left_index++;
-                        right_index++;
-                        continue;
-                    }
-
-                    if(l.b1 <= r.b1)  // pehle r bda y-coordinate
-                    {
-                        if(l.c1 <= r.c1)  //  r extends beyond l
-                        {
-                        Line y(r.a1, r.b1, x_intersect, r.m*1.0*x_intersect + r.c );
-                        merged.push_back(y);
-                        Line z( x_intersect, r.m*1.0*x_intersect + r.c, l.c1 , l.d1 );
-                        merged.push_back(z); 
-                        right[right_index].a1 = l.c1;
-                        right[right_index].b1 = r.m*1.0*l.c1 + r.c;
-                        left_index++;
-                        continue;
-                        }
-                        else{     // l extends beyond r
-                        Line y(r.a1, r.b1, x_intersect, r.m*1.0*x_intersect + r.c );
-                        merged.push_back(y);
-                        Line z( x_intersect, r.m*1.0*x_intersect + r.c, r.c1 , l.m*1.0*r.c1 + l.c );
-                        merged.push_back(z); 
-                        left[left_index].a1 = r.c1;
-                        left[left_index].b1 = l.m*1.0*r.c1 + l.c;
-                        right_index++;
-                        continue;
-                        }
-                    }
-                    else{       // pehle l bda y-coordinate
-
-                    if(l.c1 <= r.c1)  //  r extends beyond l
-                        {
-                        Line y(l.a1, l.b1, x_intersect, l.m*1.0*x_intersect + l.c );
-                        merged.push_back(y);
-                        Line z( x_intersect, l.m*1.0*x_intersect + l.c, l.c1 , r.m*1.0*l.c1 + r.c );
-                        merged.push_back(z); 
-                        right[right_index].a1 = l.c1;
-                        right[right_index].b1 = r.m*1.0*l.c1 + r.c;
-                        left_index++;
-                        continue;
-                        }
-                        else{     // l extends beyond r
-                        Line y(l.a1, l.b1, x_intersect, l.m*1.0*x_intersect + l.c );
-                        merged.push_back(y);
-                        Line z( x_intersect, l.m*1.0*x_intersect + l.c, r.c1 , r.d1 );
-                        merged.push_back(z); 
-                        left[left_index].a1 = r.c1;
-                        left[left_index].b1 = l.m*1.0*r.c1 + l.c;
-                        right_index++;
-                        continue;
-                        }
-                    }
-                }
 
                 else{    // left half vala initially upr h
    
@@ -227,6 +231,8 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
             } // lines cross each other 
  
 
+
+
             else{ // lines dont cross - 4 cases , disjoint , contained , partially contained-2
  
                 if(l.c1 <= r.a1)
@@ -239,10 +245,15 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                 if(r.c1 > l.c1)  // l is partailly contained , r extend ho rha
                 {
                     double l_value_at_left_project = l.m*1.0*r.a1 + l.c ;
-                    if( l_value_at_left_project <= r.b1 )
+                    double r_value_at_right_project = r.m*1.0*l.c1 + r.c ;
+                    if( l_value_at_left_project < r.b1 || l.d1 < r_value_at_right_project)            // right vale me bhi change laa yaha
                     {
                         Line x(l.a1, l.b1, r.a1, l_value_at_left_project);
                         merged.push_back(x);
+                        Line y(r.a1, r.b1, l.c1, r.m*l.c1 + r.c);
+                        merged.push_back(y);
+                        right[right_index].a1 = l.c1;
+                        right[right_index].b1 = r.m*l.c1 + r.c;
                         left_index++;
                         continue;
                     } // right vali  will overtake before finishing of left
@@ -260,7 +271,8 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                 
                 else{   // r is partially contained , l beyond extend ho rha h 
                     double l_value_at_left_project = l.m*1.0*r.a1 + l.c ;
-                        if( l_value_at_left_project <= r.b1 )
+                    double l_value_at_right_project = l.m*1.0*r.c1 + l.c ;
+                        if( l_value_at_left_project < r.b1 && l_value_at_right_project<r.d1)
                     {
                         Line x(l.a1, l.b1, r.a1, l_value_at_left_project);
                         merged.push_back(x);
@@ -315,7 +327,8 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                 double x_intersect = intersection(l,r);
                 // OG intersection ke cases - 4cases , depending on left vala upr ya niche , and left ka c1 < / > right ka c1 
                 
-                if((l.a1 - r.a1)*(l.b1 - r.b1) >= 0) // left subhalf initially upr h
+
+                if(l.m < r.m) // left subhalf initially upr h
                 {
                     if(r.c1 <= l.c1)  // l beyond r chl rha h 
                     {
@@ -345,6 +358,8 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                     }
 
                 } 
+
+              
 
                 else{  // right subhalf is initially upr
  
@@ -388,10 +403,15 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                 if(l.c1 > r.c1)     // r is partailly contained , l extend ho rha
                 {
                     double r_value_at_right_project = r.m*1.0*l.a1 + r.c ;
-                    if( r_value_at_right_project <= l.b1 )
+                    double l_value_at_rightmost_project = l.m*1.0*r.c1 + l.c ;
+                    if( r_value_at_right_project < l.b1 || r.d1 < l_value_at_rightmost_project )
                     {
                         Line x(r.a1, r.b1, l.a1, r_value_at_right_project);
                         merged.push_back(x);
+                        Line y(l.a1, l.b1, r.c1, l.m*1.0*r.c1 + l.c);
+                        merged.push_back(y);
+                        left[left_index].a1 = r.c1;
+                        left[left_index].b1 = l.m*1.0*r.c1 + l.c;
                         right_index++;
                         continue;
                     } // left one about overtake 
@@ -409,7 +429,8 @@ vector<Line> merge( vector<Line>& left, vector<Line>& right) {
                 else{   // l is partially contained , r beyond extend ho rha h 
 
                     double r_value_at_right_project = r.m*1.0*l.a1 + r.c ;
-                        if( r_value_at_right_project <= l.b1 )
+                    double r_value_at_rightmost_project = r.m*1.0*l.c1 + r.c ;
+                        if( r_value_at_right_project < l.b1 ||  r_value_at_rightmost_project < l.d1 )
                     {
                         Line x(r.a1, r.b1, l.a1, r_value_at_right_project);
                         merged.push_back(x);
@@ -489,19 +510,20 @@ int main() {
     vector<Line> visibleSegments = mergesort(lines);
 
 
-    double area = 0;
-    for (int i = 0; i < visibleSegments.size(); ++i) {
-        Line l = visibleSegments[i];
-        area += 0.5 * (l.b1 + l.d1)*(l.c1 - l.a1);
-    }
-    cout<<(long)area<<endl;
-
     double length = 0;
     for (int i = 0; i < visibleSegments.size(); ++i) {
         Line l = visibleSegments[i];
         length += (l.c1 - l.a1);
     }
-    cout<<(long)length<<endl;
+    cout<<static_cast<long>(length)<<endl;
+
+    double area = 0;
+    for (int i = 0; i < visibleSegments.size(); ++i) {
+        Line l = visibleSegments[i];
+        area += 0.5 * (l.b1 + l.d1)*(l.c1 - l.a1);
+    }
+    cout<<static_cast<long>(area)<<endl;
+
 
     return 0;
 }

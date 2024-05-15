@@ -5,12 +5,17 @@ IMPORTANT FORMULAE:
 3. Len
 4. Left/Right                         // In date , you have to first convert it to TEXT to extract left or right digits
 5. Date to Text / TEXT()              // V.Imp. for an analyst  
-6. Trim
+6. Trim                               // left aligns text , remove extra spaces from begin/middle/end
 7. Concatenate
 9. Substitute                            // substitute at possibly multiple instances of ith occurence
 10. Sum/SumIF/SumIFS
 11. Count/CountIF/CountIFS
 12. Days/NetworkDays                    // Days give range of days spanned ; NetworkDays give range of working days(removes holidays defined in Excel for the given days range in that calender year, weekends, etc.)
 13. XLOOKUP() / VLOOKUP()               // Wildcard entry, not found feature exploration in XLOOKUP() ; SUM(XLOOKUP():XLOOKUP()) -> to sum XLOOKUP in a range ; XLOOKUP() dynamically changes arrays indices if there are modifications , XLOOKUP() is better dure to this
+14. UPPER() / LOWER()  / PROPER()       //  changes case in excel
 
-# Conditional formatting, Filter option(sort by color , bring upp , duplicate values -> imp. application (very fast resolvation)) in Excel is really cool
+  
+# Conditional formatting,data type formatting, Filter option(sort by color , bring upp certain duplicate values , etc. -> imp. application (very fast resolvation)) in Excel is really cool
+# 3-d charts better for if multiple columns also within same row , avoid labels if looking cluttered or messy
+# remove duplicates option present in excel
+

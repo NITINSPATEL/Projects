@@ -18,4 +18,5 @@ IMPORTANT FORMULAE:
 # Conditional formatting,data type formatting, Filter option(sort by color , bring upp certain duplicate values , etc. -> imp. application (very fast resolvation)) in Excel is really cool
 # 3-d charts better for if multiple columns also within same row , avoid labels if looking cluttered or messy
 # remove duplicates option present in excel
+# ctrl+H : find and replace only selected cells
 

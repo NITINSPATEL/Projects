@@ -19,4 +19,6 @@ IMPORTANT FORMULAE:
 # 3-d charts better for if multiple columns also within same row , avoid labels if looking cluttered or messy
 # remove duplicates option present in excel
 # ctrl+H : find and replace only selected cells
+# report connections option in slider tab : link elements as same (alias) in multiple sheets of same workbook
+
 

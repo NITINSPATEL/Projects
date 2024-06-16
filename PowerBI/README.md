@@ -15,4 +15,4 @@ PowerBI Learnings:
 
 PROJECT :
 
-Inculdes concepts - Data Transormations (Data Cleaning) : Split column to split other occupations , Data salaray text in range replaced by the avg. of range (split column by digit not non-digit, replace values , add column tab on top ) , try to work with least possible distinct values in each column (make use of Other option , see in filters)   ;   Visualizations of DashBoard are self-explanatory (Views Tab to change theme of Project)
+Inculdes concepts - Data Transormations (Data Cleaning) : Split column to split other occupations , Data salaray text in range replaced by the avg. of range (split column by digit not non-digit, replace values , add column tab on top ) , try to work with least possible distinct values in each column (make use of Other option , see in filters) and several visualization concepts mentioned above   ;   Visualizations of DashBoard are self-explanatory (Views Tab to change theme of Project)

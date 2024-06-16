@@ -9,4 +9,10 @@ PowerBI Learnings:
 7.  Conditional formatting : For Column visualization , click on the drop-down and choose your desired formatting (data bars / icons / etc. )
 8.  Bins and Lists :    Hold Ctrl key to select distant group elements (in data tab of LHS right click on column)  , makes new column , telling group belongingness ; bins for grouping age brackets
 9.  Popular visualizations : Line chart for Dates ; bar chart == column chart with different orientation , pie-charts (can't do comparative analysis better , not widely used in data analyst community) , multi-card for multiple numbers , single number display - CARD , Maps not widely used in PowerBI
-10.  
+
+
+
+
+PROJECT :
+
+Inculdes concepts - Data Transormations (Data Cleaning) : Split column to split other occupations , Data salaray text in range replaced by the avg. of range (split column by digit not non-digit, replace values , add column tab on top ) , try to work with least possible distinct values in each column (make use of Other option , see in filters)   ;   Visualizations of DashBoard are self-explanatory (Views Tab to change theme of Project)

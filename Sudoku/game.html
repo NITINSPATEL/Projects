@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid black;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        td:hover {
+            background-color: lightyellow;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <table id="sudokuBoard">
+        <tbody>
+            <script>
+                for (let i = 0; i < 9; i++) {
+                    document.write('<tr>');
+                    for (let j = 0; j < 9; j++) {
+                        document.write('<td class="cell" id="' + (i * 9 + j) + '" contenteditable="true"></td>');
+                    }
+                    document.write('</tr>');
+                }
+            </script>
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <button id="GetEasyPuzzle">Get Easy Puzzle</button>
+        <button id="GetMediumPuzzle">Get Medium Puzzle</button>
+        <button id="GetHardPuzzle">Get Hard Puzzle</button>
+        <button id="SolvePuzzle">Solve Puzzle</button>
+        <button id="CheckSolution">Check Solution</button>
+    </div>
+
+    <script>
+        var arr = [[], [], [], [], [], [], [], [], []];
+
+        for (var i = 0; i < 9; i++) {
+            for (var j = 0; j < 9; j++) {
+                arr[i][j] = document.getElementById(i * 9 + j);
+            }
+        }
+
+        var board = [[], [], [], [], [], [], [], [], []];
+
+        function fillBoard(board) {
+            const boardElement = document.getElementById('sudokuBoard');
+            const cells = boardElement.getElementsByClassName('cell');
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+                    const cellValue = board[i][j] === 0 ? '' : board[i][j];
+                    cells[i * 9 + j].textContent = cellValue;
+                }
+            }
+        }
+
+        function isValid2(board, i, j, num, n) {
+            for (let x = 0; x < n; x++) {
+                if (board[x][j] === num || board[i][x] === num) {
+                    return false;
+                }
+            }
+            const rn = Math.sqrt(n);
+            const si = i - (i % rn);
+            const sj = j - (j % rn);
+            for (let x = si; x < si + rn; x++) {
+                for (let y = sj; y < sj + rn; y++) {
+                    if (board[x][y] === num) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function sudokuSolver(board, i, j, n) {
+            if (i == n) {
+                return true;
+            }
+            if (j == n) {
+                return sudokuSolver(board, i + 1, 0, n);
+            }
+            if (board[i][j] !== 0) {
+                return sudokuSolver(board, i, j + 1, n);
+            }
+            for (let num = 1; num <= n; num++) {
+                if (isValid2(board, i, j, num, n)) {
+                    board[i][j] = num;
+                    const subans = sudokuSolver(board, i, j + 1, n);
+                    if (subans) {
+                        return true;
+                    }
+                    board[i][j] = 0;
+                }
+            }
+            return false;
+        }
+
+        let GetEasyPuzzle = document.getElementById('GetEasyPuzzle');
+        let GetMediumPuzzle = document.getElementById('GetMediumPuzzle');
+        let GetHardPuzzle = document.getElementById('GetHardPuzzle');
+        let SolvePuzzle = document.getElementById('SolvePuzzle');
+        let CheckSolution = document.getElementById('CheckSolution');
+
+        GetEasyPuzzle.onclick = function () {
+            var xhrRequest = new XMLHttpRequest();
+            xhrRequest.onload = function () {
+                var response = JSON.parse(xhrRequest.response);
+                console.log(response);
+                board = response.board;
+                fillBoard(board);
+            };
+            xhrRequest.open('get', 'https://sugoku.onrender.com/board?difficulty=easy');
+            xhrRequest.send();
+        };
+
+        GetMediumPuzzle.onclick = function () {
+            var xhrRequest = new XMLHttpRequest();
+            xhrRequest.onload = function () {
+                var response = JSON.parse(xhrRequest.response);
+                console.log(response);
+                board = response.board;
+                fillBoard(board);
+            };
+            xhrRequest.open('get', 'https://sugoku.onrender.com/board?difficulty=medium');
+            xhrRequest.send();
+        };
+
+        GetHardPuzzle.onclick = function () {
+            var xhrRequest = new XMLHttpRequest();
+            xhrRequest.onload = function () {
+                var response = JSON.parse(xhrRequest.response);
+                console.log(response);
+                board = response.board;
+                fillBoard(board);
+            };
+            xhrRequest.open('get', 'https://sugoku.onrender.com/board?difficulty=hard');
+            xhrRequest.send();
+        };
+
+        SolvePuzzle.onclick = function () {
+            console.log('Solving puzzle...');
+            const solved = sudokuSolver(board, 0, 0, 9);
+            console.log('Solved:', solved);
+            console.log('Solved board:', board);
+            fillBoard(board);
+        };
+
+        CheckSolution.onclick = function () {
+            const currentBoard = getCurrentBoard();
+            const solved = sudokuSolver(board, 0, 0, 9);
+            const solution = JSON.stringify(board);
+            const current = JSON.stringify(currentBoard);
+            if (current === solution) {
+                alert('Congratulations, you have passed!');
+            } else {
+                alert('Try Again');
+            }
+        };
+
+        function getCurrentBoard() {
+            const currentBoard = [];
+            const boardElement = document.getElementById('sudokuBoard');
+            const cells = boardElement.getElementsByClassName('cell');
+            for (let i = 0; i < 9; i++) {
+                currentBoard[i] = [];
+                for (let j = 0; j < 9; j++) {
+                    const value = cells[i * 9 + j].textContent.trim();
+                    currentBoard[i][j] = value === '' ? 0 : parseInt(value);
+                }
+            }
+            return currentBoard;
+        }
+
+        // Arrow key navigation
+        document.addEventListener('keydown', function(event) {
+            const focusedElement = document.activeElement;
+            if (focusedElement.tagName === 'TD' && focusedElement.classList.contains('cell')) {
+                const cellId = focusedElement.id;
+                const rowIndex = Math.floor(cellId / 9);
+                const colIndex = cellId % 9;
+
+                switch(event.key) {
+                    case 'ArrowUp':
+                        if (rowIndex > 0) {
+                            arr[rowIndex - 1][colIndex].focus();
+                        }
+                        break;
+                    case 'ArrowDown':
+                        if (rowIndex < 8) {
+                            arr[rowIndex + 1][colIndex].focus();
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        if (colIndex > 0) {
+                            arr[rowIndex][colIndex - 1].focus();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (colIndex < 8) {
+                            arr[rowIndex][colIndex + 1].focus();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

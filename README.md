@@ -6,3 +6,4 @@
 - Project4 : Excel Project
 - Project5 : Tableau Dashboard for AirBNB Listings
 - Project6 : Power BI Visualizations
+- Project7 : Sudoku Game

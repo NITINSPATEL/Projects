@@ -1,4 +1,5 @@
-# This project is on Customer Churn Prediction using ANN (Artificial Neural Network) and Deep Learning  #
+# TOPIC  #
+This project is on Customer Churn Prediction using ANN (Artificial Neural Network) and Deep Learning
 
 ## Files ##
 

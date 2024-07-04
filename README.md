@@ -7,4 +7,4 @@
 - Project5 : Tableau Dashboard for AirBNB Listings
 - Project6 : Power BI Visualizations
 - Project7 : Sudoku Game
-- Project9 : Customer Churn Prediction Using ANN
+- Project8 : Customer Churn Prediction Using ANN

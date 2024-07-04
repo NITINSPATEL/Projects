@@ -20,4 +20,8 @@ About Dataset : Telcom Customer Churn , Each row represents a customer, each col
 Yes/ No enocding to 1/0 for running Neural Networks on it <br>
 REMAINING CATEGORICAL COLUMNS ARE ONE HOT ENCODED
 
+### Final Results ###
+Final classification is shown using classification_report and confusion_matrix functions in colab notebook
+
+
 

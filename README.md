@@ -8,3 +8,5 @@
 - Project6 : Power BI Visualizations
 - Project7 : Sudoku Game
 - Project8 : Customer Churn Prediction Using ANN
+- Project9 : nsp_template_library in C++
+- 

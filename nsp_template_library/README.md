@@ -1,7 +1,7 @@
-## Files ##
+# Files #
 nsp_template_library.cpp
 
-#Overview#
+## Overview ##
 - This C++ file consists of 3 classes containing poplar functions which avoid re-writing of them everytime we work on them. These can be readily used by including them in your project
 - First class is on GRAPHS : For both directed/undirected graphs ,insert, do BFS, DFS, Shortest Path/Walk (negative weights also) , Cycle Detection, etc.
 - Second class is on Tries : Insert into trie and do time-efficient search of words in it

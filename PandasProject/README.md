@@ -13,4 +13,11 @@
 -   merge  : df1.merge(df2) - df1 is left and df2 is right, by default does inner join , sees for same col names for merging by default ; df1.merge(df2, how = 'inner' , on = ['col1',etc.] ) ; how = outer / left / right / cross (cartesian product) ;    "on" columns are not repeated in merged dataframe
 -  join : df1.join(df2) ; "on"  , "lsuffix", "rsuffix" are necessary to mention  {lsuffix = '_Left', etc.} , all columns are repeated in joined df ; "on" is not needed if we use df.set_index for both left and right df ; using set_index results are very similar as that of merge
 -  concatenate :  pd.concat([df1,df2]) , df2's rows are concatenated to df1's rows ; pd.concat(axis=0 by default , axis=1 -> side by side concatenation) ; join parameter for deciding which columns to take in concatenated df
--  
+-  df1.append(df2) == pd.concat([df1,df2])
+-  visualizations : matplotlib.style.available ; plt.style.use('any element of the previous output') 
+-  visual1 : df.plot() / df['col'].plot()  / df.plot.barh (for horizontal bar chart) ; parameters ->  kind = 'line' / 'bar'   ,stacked = true ,  subplots = True/false , title , xlabel , ylabel ,
+-  visual2 : df.plot.scatter() ; parameters -> x = 'col1' , y='col2' , s = 50 , c= 'yellow' ,
+-  visual3 : df.plot.hist() ; parameters -> bins = 20
+-  visual4 : df.boxplot() ;  0,25,50,75,100 percentile are 5 horizontal lines
+-  visual5 : df.plot.area() ; parmeters - figsize = (10,20)
+-  visual6 : df.plot.pie() ; parameters - y = 'col_name' , figsize = (10,20) 

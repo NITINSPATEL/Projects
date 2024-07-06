@@ -1,9 +1,9 @@
 # Files #
 
 ## NOTE ##
-The objective of DataCleaning project is to clean the data , remove duplicates , remove null values row ,  not useful column , standardised column values , remove unnecesary special characters from column values . Cleaned data then can be suitably used for further analysis and AI-ML modelling part <br>
-The objective of DataExploration project is to  <br>
-Jupyter Notebook codes are self-explanatory and easy understood <br>
+- The objective of DataCleaning project is to clean the data , remove duplicates , remove null values row ,  not useful column , standardised column values , remove unnecesary special characters from column values . Cleaned data then can be suitably used for further analysis and AI-ML modelling part 
+- The objective of DataExploration project is to  
+- Jupyter Notebook codes are self-explanatory and easy understood 
 
 ## Overview of Pandas  ##
 - read_csv(r"csv_path") , have imp. parameters : header , index , names, sep,   index_col 

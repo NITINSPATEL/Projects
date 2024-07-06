@@ -9,4 +9,8 @@
 - slicing , indexing , condition filtering can be done in df as in arrays df[df['col'] <= 10 ] ,etc.
 -  df operations :  df[df['col'].isin(list) ] , df[df['col'].str.contains('text') ] , df.set_index('col_name')  {multiple columns can be there} , df.reset_index(inplace=true) , df.filter(items=[list] , axis = 0/1) {1 by default , which is for columns} ,  df.filter(like=[list] , axis = 0/1) , df.sort_values(by=[list of columns], ascending = [false,true, etc.]) {first column of list has highest priority}
 -  indexing : df.sort_index(ascending=[list IFF multiple column are list]) , iloc is number specific accessing (index umber is fixed , can't be changed) , loc access level by level all indexing columns
--  aggregating  : 
+-  aggregating  : gr_df = df.groupby(['col1','col2']) , gr_df.mean() - takes mean of all numerical columns in a group of grouped dataframe , gf_df.count() - cpunts no. of rows in every grouped thing , gf_df.min() and gf.df.max()  for min and max values in each column , gf_df.sum() , gf_df.agg({'col1':['mean' , 'max', etc. ] , 'col2':[] , etc.}) , gf_df.describe() 
+-   merge  : df1.merge(df2) - df1 is left and df2 is right, by default does inner join , sees for same col names for merging by default ; df1.merge(df2, how = 'inner' , on = ['col1',etc.] ) ; how = outer / left / right / cross (cartesian product) ;    "on" columns are not repeated in merged dataframe
+-  join : df1.join(df2) ; "on"  , "lsuffix", "rsuffix" are necessary to mention  {lsuffix = '_Left', etc.} , all columns are repeated in joined df ; "on" is not needed if we use df.set_index for both left and right df ; using set_index results are very similar as that of merge
+-  concatenate :  pd.concat([df1,df2]) , df2's rows are concatenated to df1's rows ; pd.concat(axis=0 by default , axis=1 -> side by side concatenation) ; join parameter for deciding which columns to take in concatenated df
+-  

@@ -1,11 +1,13 @@
 # Files #
 DataCleaning.ipynb <br>
 CustomerCallListCleaning.xlsx (Dataset for DataCleaning using Pandas) <br>
+ExploratoryDataAnalysis.ipynb <br>
+world_population.csv (Dataset for DataExploration using Pandas)
 
 
 ## NOTE ##
 - The objective of DataCleaning project is to clean the data , remove duplicates , remove null values row ,  not useful column , standardised column values , remove unnecesary special characters from column values . Cleaned data then can be suitably used for further analysis and AI-ML modelling part 
-- The objective of DataExploration project is to  
+- The objective of DataExploration project is to  showcase what all exploratory analysis can we do given a dataset. Explored correlation between population and other metrics of countries on average , inter-continental population analysis over time , boxplots best to find the outliers in dataset  
 - Jupyter Notebook codes are self-explanatory and easily understandable
 
 ## Overview of Pandas  ##
@@ -28,4 +30,5 @@ CustomerCallListCleaning.xlsx (Dataset for DataCleaning using Pandas) <br>
 -  visual3 : df.plot.hist() ; parameters -> bins = 20
 -  visual4 : df.boxplot() ;  0,25,50,75,100 percentile are 5 horizontal lines
 -  visual5 : df.plot.area() ; parmeters - figsize = (10,20)
--  visual6 : df.plot.pie() ; parameters - y = 'col_name' , figsize = (10,20) 
+-  visual6 : df.plot.pie() ; parameters - y = 'col_name' , figsize = (10,20)
+-  df.dtypes , df.select_dtypes(inculde='number')

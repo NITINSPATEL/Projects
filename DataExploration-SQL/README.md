@@ -178,3 +178,18 @@ where dea.continent is not null
 Select *
 From PercentPopulationVaccinated
 
+
+
+WINDOWS FUNCTIONS :
+ROW_NUMBER()
+RANK()
+DENSE_RANK()
+
+
+
+STORED_PROCEDURES: 
+
+
+
+
+TRIGGERS AND EVENTS :

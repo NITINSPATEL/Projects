@@ -1,6 +1,9 @@
 # Files #
 
-## Overview ##
+## NOTE ##
+Jupyter Notebook codes are self-explanatory and easy understood
+
+## Overview of Pandas  ##
 - read_csv(r"csv_path") , have imp. parameters : header , index , names, sep,   index_col 
 - read_table , read_json , read_excel (para : sheet_name)
 - pd.set_option('display.max.rows',num_max_rows+2) ,  pd.set_option('display.max.columns',num_max_cols+2)  : changes the deafualt view of dataframe , having dots between all 

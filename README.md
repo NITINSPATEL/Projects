@@ -11,3 +11,4 @@
 - Project9 : nsp_template_library in C++
 - Project10 : Python WebScraping
 - Project11 : Amazon WebScraping
+- Project12 : Pandas Project

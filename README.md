@@ -12,3 +12,4 @@
 - Project10 : Python WebScraping
 - Project11 : Amazon WebScraping
 - Project12 : Pandas Project
+- Project13 : Automating Crypto Website using API pull

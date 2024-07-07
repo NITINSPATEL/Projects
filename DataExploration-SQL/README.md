@@ -179,18 +179,35 @@ Select *
 From PercentPopulationVaccinated
 <br>
 <br>
+<br>
+<br>
 WINDOWS FUNCTIONS :
-ROW_NUMBER()
-RANK()
+ROW_NUMBER() <br>
+RANK() br>
 DENSE_RANK()
 <br>
 
 STORED_PROCEDURES: 
 - CREATE PROCEDURE 'name' () , CREATE PROCEDURE 'name' (id INT) 
 -  CALL 'name' () , CALL (5 // INT type)
--  DELIMITER $$ , after END , DELIMITER (// to change back to deafult) ;  {favouable when multiple queries data into single stored procedure , will get sepearate results for each query on calling stored procedure } 
--   BEGIN
--   END $$
+-  DELIMITER $$ , after END , DELIMITER (// to change back to deafult) ;  {favouable when multiple queries data into single stored procedure , will get sepearate results for each query on calling stored procedure }  
+-   BEGIN ______   END $$
+
+TRIGGERS:
+- triggers happens automatically if data is entered into some table to put data in other relevant table as well
+-  DELIMITER in same way as in STORED PROCEDURES
+-  CREATE TRIGGER 'name' ; AFTER/BEFORE INSERT ON tbl_name ; FOR EACH ROW {to trigger for each row} ; BEGIN ____ END ; // btw BEGIN and END -> INSERT INTO tbl_2 (col_names) VALUES (NEW/OLD : NEW.cols_names)
+
+EVENTS:
+- trigger happens when event takes place , event takes place when it is scheduled , event is schedule automator , triggers and events both very helpful for automation work
+- DELIMITERS used here also as in TRIGGERS , basically everywhere multiple queries are used as sub-part
+- events in short , check at regular intervals database tables and alter them if some condition meets for some rows
+- CREATE EVENT 'name'  ; ON SCHEDULE EVERY 30 SECOND ; DO ; BEGIN _____  CRUD TABLE QUERY FOR SOME CONDITION  _____ END ;
+- SHOW VARIALES ; SHOW VARIABLES LIKE 'event%' ;
+- ALTER QUERY FOR TRIGGER AND EVENTS ENABLE/DISABLE is there
 
 
-TRIGGERS AND EVENTS :
+
+## NOTE ##
+SQL triggers and events enable background automation of tasks based on specified conditions or schedules, allowing other queries to run concurrently without interruption in a well-designed database environment <br>
+In EDIT TAB , preference options to allow CRUD operations by triggers and events

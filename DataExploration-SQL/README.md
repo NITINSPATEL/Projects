@@ -177,19 +177,20 @@ where dea.continent is not null
 
 Select *
 From PercentPopulationVaccinated
-
-
-
+<br>
+<br>
 WINDOWS FUNCTIONS :
 ROW_NUMBER()
 RANK()
 DENSE_RANK()
-
-
+<br>
 
 STORED_PROCEDURES: 
-
-
+- CREATE PROCEDURE 'name' () , CREATE PROCEDURE 'name' (id INT) 
+-  CALL 'name' () , CALL (5 // INT type)
+-  DELIMITER $$ , after END , DELIMITER (// to change back to deafult) ;  {favouable when multiple queries data into single stored procedure , will get sepearate results for each query on calling stored procedure } 
+-   BEGIN
+-   END $$
 
 
 TRIGGERS AND EVENTS :

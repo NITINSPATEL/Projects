@@ -25,7 +25,7 @@ their parameters, if applicable. Each algorithm is represented by a number as li
 introduction section and as shown in the attached testcases.
 Round Robin and Aging have a parameter specifying the quantum q to be used. Therefore, a policy
 entered as 2-4 means Round Robin with q=4. Also, policy 8-1 means Aging with q=1. <br>
-Quantum Number is neede only in 2 and 8 Algorithms
+Quantum Number is neede only in '2' and '8' Algorithms
  1. FCFS (First Come First Serve)
  2. RR (Round Robin)
  3. SPN (Shortest Process Next)
@@ -51,4 +51,4 @@ Quantum Number is neede only in 2 and 8 Algorithms
 **Important:** Processes are assumed to be sorted based on the priority. If two processes have the same priority, then the one with the lower arrival time is assumed to arrive first. Otherwise, unexpected behavior
 **Important:** Ensure that your input processing completes up to the last instant for all algorithms. Failure to do so may result in unexpected behavior, such as segmentation faults or incorrect results, especially in algorithms like Round Robin and MLFQ
 
-> Check the attached [testcases](https://github.com/yousefkotp/CPU-Scheduling-Algorithms/tree/main/testcases) for more details of the input format.
+> Check the attached [testcases](https://github.com/NITINSPATEL/Projects/tree/main/CPUprocessScheduler/testcases) for more details of the input format.

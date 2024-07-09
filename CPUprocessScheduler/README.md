@@ -48,7 +48,7 @@ Quantum Number is neede only in '2' and '8' Algorithms
     2- Arrival Time\ 
     3- Priority (Also equal to waiting time for a process)
 
-**Important:** Processes are assumed to be sorted based on the priority. If two processes have the same priority, then the one with the lower arrival time is assumed to arrive first. Otherwise, unexpected behavior
+**Important:** Processes are assumed to be sorted based on the priority. If two processes have the same priority, then the one with the lower arrival time is assumed to arrive first. Otherwise, unexpected behavior <br> <br>
 **Important:** Ensure that your input processing completes up to the last instant for all algorithms. Failure to do so may result in unexpected behavior, such as segmentation faults or incorrect results, especially in algorithms like Round Robin and MLFQ
 
 > Check the attached [testcases](https://github.com/NITINSPATEL/Projects/tree/main/CPUprocessScheduler/testcases) for more details of the input format.

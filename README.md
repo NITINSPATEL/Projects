@@ -15,3 +15,4 @@
 - Project13 : Automating Crypto Website using API pull
 - Project14 : Portfolio Website
 - Project15 : CPUprocessScheduler
+- Project16 : RapidLearn: Accelerated Learning Apps

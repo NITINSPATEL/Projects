@@ -1,6 +1,6 @@
 # Files #
 - Dataset - CIFAR10 (60K images , 32*32 pixels , 10 classes)
-- 
+- image_classification.ipynb (containing CNN implementation)
 
 ## Applications ##
 - Self-Driving Cars

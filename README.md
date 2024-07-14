@@ -18,3 +18,4 @@
 - Project16 : RapidLearn: Accelerated Learning Apps
 - Project17 : [scam'92_v2.0 - SOC_2k24](https://github.com/NITINSPATEL/SOC_scam_v92_Project)
 - Project18 : Multi-Image Classifier
+- Project19 : Algorithmic Trading Bot
